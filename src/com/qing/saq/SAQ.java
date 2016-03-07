@@ -13,17 +13,32 @@ import com.qing.saq.anno.Event;
 import com.qing.saq.bean.CViewBean;
 import com.qing.saq.bean.EventBean;
 
+/**
+ * 每一个activity或者fragment对应一个SAQ对象，
+ * 
+ * @author liuchangqing
+ */
 public class SAQ {
 	private List<CViewBean> viewList = new ArrayList<CViewBean>();
 	private List<EventBean> eventList = new ArrayList<EventBean>();
 	private View curView;
 	private Object container;
 	
+	/**
+	 * 
+	 * @param container activity或者fragment对象
+	 * @param curView 当前view
+	 */
 	public void registe(Object container, View curView) {
 		this.container = container;
 		this.curView = curView;
 	}
 
+	/**
+	 * 初始化view组件
+	 * 设置监听
+	 * @return
+	 */
 	public boolean init() {
 		try {
 			if(container == null)

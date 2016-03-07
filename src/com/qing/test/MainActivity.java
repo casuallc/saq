@@ -1,15 +1,22 @@
-package com.qing.saq;
+package com.qing.test;
+
+import com.qing.saq.SAQ;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 
 public class MainActivity extends Activity {
-
+	
+	private SAQ saq = new SAQ();
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+//		setContentView(layoutResID);
+		
+		saq.registe(this, getWindow().getDecorView());
+		saq.init();
+		
 	}
+	
 }

@@ -4,6 +4,10 @@ import java.lang.reflect.Field;
 
 import com.qing.saq.anno.CView;
 
+/**
+ * view 组件
+ * @author liuchangqing
+ */
 public class CViewBean {
 
 	private String name;
