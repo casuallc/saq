@@ -7,6 +7,8 @@ import java.util.List;
 
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
 
 import com.qing.saq.anno.CView;
 import com.qing.saq.anno.Event;
@@ -29,9 +31,10 @@ public class SAQ {
 	 * @param container activity或者fragment对象
 	 * @param curView 当前view
 	 */
-	public void registe(Object container, View curView) {
+	public SAQ registe(Object container, View curView) {
 		this.container = container;
 		this.curView = curView;
+		return this;
 	}
 
 	/**
@@ -95,7 +98,10 @@ public class SAQ {
 					case CLICK:
 						obj.setOnClickListener((OnClickListener) bean.getField().get(container));
 						break;
-
+					case LV_ITEM_CLICK:
+						ListView lv = (ListView)obj;
+						lv.setOnItemClickListener((OnItemClickListener) bean.getField().get(container));
+						break;
 					default:
 						break;
 					}
